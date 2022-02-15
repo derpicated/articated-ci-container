@@ -1,2 +1,3 @@
-# derpicated-articated-ci-container
-A container for the derpicated articated ci jobs
+# articated-ci-container
+
+Containers for the [ARticated](https://github.com/derpicated/articated) CI jobs.
