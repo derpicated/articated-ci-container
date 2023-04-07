@@ -2,7 +2,7 @@ name: Publish CI Docker image
 on:
   push:
     paths:
-      - 'Dockerfile'
+      - '*.Dockerfile'
       - '.github/workflows/docker-build.yml'
 jobs:
   push_to_registry:
