@@ -10,33 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
 
       - name: Install Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
       - name: Lint
-        uses: pre-commit/action@v2.0.3
+        uses: pre-commit/action@v3.0.0
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push Ubuntu Qt5
-        uses: docker/build-push-action@v2
+      - name: Build and push Ubuntu Qt6
+        uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./ubuntu-qt5.Dockerfile
-          push: true
-          tags: ghcr.io/derpicated/articated-ci-qt5:latest
-
-      - name: Build and push Fedora Qt6
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./fedora-qt6.Dockerfile
+          file: ./ubuntu-qt6.Dockerfile
           push: true
           tags: ghcr.io/derpicated/articated-ci-qt6:latest
