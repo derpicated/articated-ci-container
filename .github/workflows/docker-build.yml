@@ -29,6 +29,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./ubuntu-qt6.Dockerfile
+          file: ./fedora-qt6.Dockerfile
           push: true
           tags: ghcr.io/derpicated/articated-ci-qt6:latest
